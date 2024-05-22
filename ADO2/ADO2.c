@@ -4,9 +4,9 @@
 
 int main() {
 	//entradas conforme o descritivo do slide
-	int n = 6;
-	int pai[] = {-1, 0, 1, 2, 3, 0}; 
-	int peso[] = {1, 2, 3, 4, 5, 6}; 
+	int n = 12;
+	int pai[12] = {9, 0, 4, 8, 3, 2, 7, 5, 10, 1, 11, 6}; 
+	int peso[12] = {2, 3, 1, 2, 1, 4, 3, 1, 3, 2, 1, 4}; 
 	int soma[n];
 	int p[n];
 	int pesoAux[n];
