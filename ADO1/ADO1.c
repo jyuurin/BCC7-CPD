@@ -5,22 +5,22 @@
 
 void copiaValMaximo(int A[], int B[], int n, int p) 
 {
-		int i, j;
+	int i, j;
 	
-		#pragma omp parallel for private(i)
-		for (i = 0; i < p; i++) 
-		{
-				B[p + i] = A[i * (n/p)];
-		}
-
-		for (i = 0; i < p; i++) 
-		{
-				for (j = 1; j < n/p; j++) 
-				{
-					if (A[i * (n/p) + j] > B[p + i])
-						B[p + i] = A[i * (n/p) + j];
-				}
-		}
+	#pragma omp parallel for private(i)
+	for (i = 0; i < p; i++) 
+	{
+			B[p + i] = A[i * (n/p)];
+	}
+	
+	for (i = 0; i < p; i++) 
+	{
+			for (j = 1; j < n/p; j++) 
+			{
+				if (A[i * (n/p) + j] > B[p + i])
+					B[p + i] = A[i * (n/p) + j];
+			}
+	}
 }
 
 int main() 
