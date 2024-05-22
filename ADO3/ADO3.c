@@ -62,7 +62,7 @@ int main()
   int n = MAX_SIZE;
   
   struct No* L[MAX_SIZE];
-  int dist[MAX_SIZE]; 
+  int dist[-1, 5, 0, 6, 7, 3, 2, 1]; 
 
   printf("Digite os elementos da lista:\n");
   for (int i = 0; i < n; i++) 
