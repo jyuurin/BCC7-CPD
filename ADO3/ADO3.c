@@ -8,7 +8,7 @@
 struct No
 {
   int data;
-  struct Node* next;
+  struct No* next;
 };
 
 struct No* novoNo(int data) 
