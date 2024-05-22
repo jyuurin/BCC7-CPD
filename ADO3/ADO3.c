@@ -29,7 +29,7 @@ void calculaDist(struct No* L[], int n, int dist[])
   {
     p[i] = L[i]->next;
   }
-    // Calcular distâncias para cada elemento
+  
   #pragma omp parallel for
   for (int i = 0; i < n; i++) 
   {
@@ -43,7 +43,6 @@ void calculaDist(struct No* L[], int n, int dist[])
     }
   }
 
-    // Loop para calcular distâncias baseado em potências de 2
   for (int j = 1; j <= log2(n); j++) 
   {
     #pragma omp parallel for
