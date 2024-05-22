@@ -7,14 +7,14 @@
 
 struct No
 {
-  int data;
-  struct No* next;
+  int prox;
+  struct No* prox;
 };
 
-struct No* novoNo(int data) 
+struct No* novoNo(int prox) 
 {
   struct No* no = (struct No*)malloc(sizeof(struct No));
-  no->val = data;
+  no->val = val;
   no->prox = NULL;
   return no;
 }
@@ -27,7 +27,7 @@ void calculaDist(struct No* L[], int n, int dist[])
   #pragma omp parallel for
   for (int i = 0; i < n; i++) 
   {
-    p[i] = L[i]->next;
+    p[i] = L[i]->prox;
   }
   
   #pragma omp parallel for
