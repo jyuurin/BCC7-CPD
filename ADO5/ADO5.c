@@ -2,7 +2,7 @@
 #include <math.h>
 #include <omp.h>
 
-// Função para avaliar o polinômio
+//Avaliação de Polinômios
 double avalia(int i, int j, double c[], double x) 
 {
   double a, b;
@@ -29,24 +29,24 @@ double avalia(int i, int j, double c[], double x)
 
 int main() {
   int n;
-  printf("Digite o grau do polinomio (n): ");
+  printf("grau do polinomio (n): ");
   scanf("%d", &n);
 
-  double c[n]; // Coeficientes do polinômio
-  printf("Digite os coeficientes do polinomio:\n");
+  double c[n];
+  printf("Coeficientes do polinomio:\n");
   for (int i = 0; i < n; i++) {
       printf("c[%d]: ", i);
       scanf("%lf", &c[i]);
   }
 
   double x;
-  printf("Digite o valor de x: ");
+  printf("valor de x: ");
   scanf("%lf", &x);
 
   // Avaliação do polinômio
   double resultado = avalia(0, n - 1, c, x);
 
-  printf("O resultado do polinomio para x = %.2lf é: %.2lf\n", x, resultado);
+  printf("polinomio para x = %.2lf é: %.2lf\n", x, resultado);
 
   return 0;
 }
