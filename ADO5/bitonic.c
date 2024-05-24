@@ -19,7 +19,7 @@ void bitonicSplit(int A[], int n)
 		#pragma omp parallel for
 		for (int i = 0; i <= (n - 2)/2; i++) 
 		{
-				compare_e_troca(A, i, i + n/2);
+			compare_e_troca(A, i, i + n/2);
 		}
 		bitonicSplit(A, n/2);
 		bitonicSplit(A + n/2, n/2);
