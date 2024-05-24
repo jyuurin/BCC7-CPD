@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <omp.h>
 
-int escolha_pivo(int A[], int m, int n) {
+int escolha_pivo(int A[], int m, int n) 
+{
 	int meio = (m + n) / 2;
 	int pivo;
 
@@ -15,13 +16,15 @@ int escolha_pivo(int A[], int m, int n) {
 	return pivo;
 }
 
-void quicksort_paralelo(int A[], int m, int n) {
+void quicksort_paralelo(int A[], int m, int n) 
+{
 	if (m < n) {
 		int pivo = escolha_pivo(A, m, n);
 
 		int lt[n - m], eq[n - m], gt[n - m];
 		#pragma omp parallel for
-		for (int k = 0; k <= n - m; k++) {
+		for (int k = 0; k <= n - m; k++) 
+		{
 			lt[k] = (A[m + k] < A[pivo]);
 			eq[k] = (A[m + k] == A[pivo]);
 			gt[k] = (A[m + k] > A[pivo]);
@@ -31,7 +34,8 @@ void quicksort_paralelo(int A[], int m, int n) {
 		int lt_ps[n - m + 1], eq_ps[n - m + 1], gt_ps[n - m + 1];
 		int lt_cont = 0, eq_cont = 0, gt_cont = 0;
 		#pragma omp parallel for
-		for (int k = 0; k <= n - m; k++) {
+		for (int k = 0; k <= n - m; k++) 
+		{
 			lt_ps[k] = lt_cont;
 			eq_ps[k] = eq_cont;
 			gt_ps[k] = gt_cont;
@@ -42,7 +46,8 @@ void quicksort_paralelo(int A[], int m, int n) {
 
 		int B[n - m + 1];
 		#pragma omp parallel for
-		for (int k = 0; k <= n - m; k++) {
+		for (int k = 0; k <= n - m; k++) 
+		{
 			if (lt[k])
 				B[lt_ps[k]] = A[m + k];
 			else if (eq[k])
@@ -52,7 +57,8 @@ void quicksort_paralelo(int A[], int m, int n) {
 		}
 
 		#pragma omp parallel for
-		for (int k = 0; k <= n - m; k++) {
+		for (int k = 0; k <= n - m; k++) 
+		{
 			A[m + k] = B[k];
 		}
 
@@ -79,7 +85,8 @@ int main() {
 	}
 
 	printf("resultado:\n");
-	for (int i = 0; i < tamanho; i++) {
+	for (int i = 0; i < tamanho; i++) 
+	{
 		printf("%d ", A[i]);
 	}
 	printf("\n");
