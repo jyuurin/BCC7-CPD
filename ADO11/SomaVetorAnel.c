@@ -4,8 +4,8 @@
 
 int main(int argc, char *argv[]) {
 	int rank, tamanho;
-	int n = 12; // Tamanho do vetor total
-	int r; // Tamanho do sub-vetor
+	int n = 12;
+	int r;
 	int *localVet;
 	int localSoma = 0;
 	int totalSoma = 0;
@@ -21,8 +21,7 @@ int main(int argc, char *argv[]) {
 		localVet[i] = (rank * r) + i + 1;
 		localSoma += localVet[i];
 	}
-
-	// Realiza a comunicação no anel
+	
 	int esq = (rank == 0) ? (tamanho - 1) : (rank - 1);
 	int dir = (rank + 1) % tamanho;
 
